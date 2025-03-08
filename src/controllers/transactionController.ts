@@ -47,23 +47,22 @@ class TransactionController {
 
     public async getTransactionStatus(req: Request, res: Response): Promise<void> {
         const { transactionId } = req.params;
-
+    
         try {
             const btcStatus = await this.btcService.getTransactionStatus(transactionId);
             const moneroStatus = await this.moneroService.getTransactionStatus(transactionId);
-
-            const status = btcStatus || moneroStatus;
-
-            if (!status) {
-                res.status(404).json({ error: 'Transaction not found' });
+    
+            if (!btcStatus && !moneroStatus) {
+                res.status(404).json({ error: 'Transaction not found or not supported' });
                 return;
             }
-
-            res.status(200).json(status);
+    
+            res.status(200).json(btcStatus || moneroStatus);
         } catch (error) {
             res.status(500).json({ error: (error as Error).message });
         }
     }
-}
+    
+}    
 
 export default TransactionController;

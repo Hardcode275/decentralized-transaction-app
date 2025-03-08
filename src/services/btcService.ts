@@ -21,8 +21,11 @@ export default class BtcService {
         return `Swap of ${amount} BTC to ${targetAddress} initiated successfully.`;
     }
 
-    async getTransactionStatus(transactionId: string): Promise<any> {
-        // Logic to get the transaction status for BTC
-        // Return the transaction status or null if not found
+    public async getTransactionStatus(transactionId: string) {
+        // Simulación de estado (debes cambiarlo por una API real)
+        if (transactionId === "transaction-id") {
+            return { status: "pending", confirmations: 0 };
+        }
+        return null;
     }
 }
