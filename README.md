@@ -1,69 +1,70 @@
-# Decentralized Transaction App
+# Aplicación de Transacciones Descentralizadas
 
-This project is a decentralized application designed to facilitate transactions between Bitcoin (BTC) and Monero (XMR) using a swap methodology. The application aims to provide a seamless and secure way to perform cryptocurrency swaps without relying on centralized exchanges.
+Este proyecto es una aplicación descentralizada diseñada para facilitar transacciones entre Bitcoin (BTC) y Monero (XMR) utilizando una metodología de intercambio (swap). La aplicación tiene como objetivo proporcionar una forma segura y eficiente de realizar intercambios de criptomonedas sin depender de intercambios centralizados.
 
-## Features
+## Características
 
-- **Decentralized Swaps**: Initiate swaps between BTC and XMR in a decentralized manner.
-- **Transaction Management**: Monitor and manage transaction statuses.
-- **Service Integration**: Utilizes dedicated services for handling Bitcoin and Monero transactions.
+- **Intercambios Descentralizados**: Inicia intercambios entre BTC y XMR de manera descentralizada.
+- **Gestón de Transacciones**: Supervisa y gestiona el estado de las transacciones.
+- **Integración de Servicios**: Utiliza servicios dedicados para manejar transacciones de Bitcoin y Monero.
 
-## Project Structure
+## Estructura del Proyecto
 
 ```
-decentralized-transaction-app
+aplicacion-transacciones-descentralizadas
 ├── src
-│   ├── app.ts                  # Entry point of the application
+│   ├── app.ts                  # Punto de entrada de la aplicación
 │   ├── services
-│   │   ├── btcService.ts       # Service for Bitcoin transactions
-│   │   └── moneroService.ts    # Service for Monero transactions
+│   │   ├── btcService.ts       # Servicio para transacciones de Bitcoin
+│   │   └── moneroService.ts    # Servicio para transacciones de Monero
 │   ├── controllers
-│   │   └── transactionController.ts # Controller for transaction logic
+│   │   └── transactionController.ts # Controlador para la lógica de transacciones
 │   ├── routes
-│   │   └── index.ts            # API routes definition
+│   │   └── index.ts            # Definición de rutas de la API
 │   └── types
-│       └── index.ts            # Type definitions for transactions
-├── package.json                 # NPM package configuration
-├── tsconfig.json                # TypeScript configuration
-└── README.md                    # Project documentation
+│       └── index.ts            # Definiciones de tipos para transacciones
+├── package.json                 # Configuración de paquetes NPM
+├── tsconfig.json                # Configuración de TypeScript
+└── README.md                    # Documentación del proyecto
 ```
 
-## Installation
+## Instalación
 
-1. Clone the repository:
+1. Clona el repositorio:
    ```
-   git clone https://github.com/yourusername/decentralized-transaction-app.git
-   ```
-
-2. Navigate to the project directory:
-   ```
-   cd decentralized-transaction-app
+   git clone https://github.com/tuusuario/aplicacion-transacciones-descentralizadas.git
    ```
 
-3. Install the dependencies:
+2. Navega al directorio del proyecto:
+   ```
+   cd aplicacion-transacciones-descentralizadas
+   ```
+
+3. Instala las dependencias:
    ```
    npm install
    ```
 
-## Usage
+## Uso
 
-To start the application, run the following command:
+Para iniciar la aplicación, ejecuta el siguiente comando:
 
 ```
 npm start
 ```
 
-The application will be available at `http://localhost:3000`.
+La aplicación estará disponible en `http://localhost:3000`.
 
-## API Endpoints
+## Endpoints de la API
 
-- **POST /swap**: Initiate a swap between BTC and XMR.
-- **GET /transaction/:id**: Retrieve the status of a transaction.
+- **POST /swap**: Inicia un intercambio entre BTC y XMR.
+- **GET /transaction/:id**: Recupera el estado de una transacción.
 
-## Contributing
+## Contribución
 
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+¡Las contribuciones son bienvenidas! Por favor, abre un issue o envía un pull request para cualquier mejora o corrección de errores.
 
-## License
+## Licencia
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+
