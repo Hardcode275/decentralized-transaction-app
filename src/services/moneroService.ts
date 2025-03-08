@@ -27,6 +27,8 @@ export class MoneroService {
 
     async getTransactionStatus(transactionId: string): Promise<any> {
         // Logic to get the transaction status for Monero
-        // Return the transaction status or null if not found
+        const transactions = await this.wallet.getTxs();
+        const transaction = transactions.find(tx => tx.id === transactionId);
+        return transaction || null; // Return the transaction status or null if not found
     }
 }
