@@ -38,7 +38,9 @@ class MoneroService {
     getTransactionStatus(transactionId) {
         return __awaiter(this, void 0, void 0, function* () {
             // Logic to get the transaction status for Monero
-            // Return the transaction status or null if not found
+            const transactions = yield this.wallet.getTxs();
+            const transaction = transactions.find(tx => tx.id === transactionId);
+            return transaction || null; // Return the transaction status or null if not found
         });
     }
 }
