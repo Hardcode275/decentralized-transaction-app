@@ -69,15 +69,14 @@ La aplicación estará disponible en `http://localhost:3000`.
   ```
 
 - **GET /transaction/:id**: Recupera el estado de una transacción.
+
+✅ Verificar la ruta `/api/transactions/status/:id`
+Ejemplo con curl (sustituye `transaction-id` por un ID real si lo tienes):
+
   ```sh
   curl -X GET http://localhost:3000/api/transactions/status/transaction-id
   ```
 
-✅ Verificar la ruta `/api/transactions/status/:id`
-Ejemplo con curl (sustituye `transaction-id` por un ID real si lo tienes):
-```sh
-curl -X GET http://localhost:3000/api/transactions/status/transaction-id
-```
 
 ## Despliegue en Heroku
 
