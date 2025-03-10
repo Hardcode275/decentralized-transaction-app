@@ -1,4 +1,4 @@
-import { MoneroWallet } from 'monero-javascript'; // Assuming a library for Monero transactions
+import { MoneroWallet } from 'monero-javascript';
 
 export class MoneroService {
     private wallet: MoneroWallet;
@@ -8,27 +8,23 @@ export class MoneroService {
     }
 
     async initiateSwap(amount: number, recipientAddress: string): Promise<string> {
-        // Logic to initiate a swap for Monero
         const tx = await this.wallet.transfer(recipientAddress, amount);
-        return tx.id; // Return transaction ID
+        return tx.id;
     }
 
     async getTransactionHistory(): Promise<any[]> {
-        // Logic to retrieve transaction history
         const history = await this.wallet.getTxs();
-        return history; // Return transaction history
+        return history;
     }
 
     async checkBalance(): Promise<number> {
-        // Logic to check the balance of the Monero wallet
         const balance = await this.wallet.getBalance();
-        return balance; // Return balance
+        return balance;
     }
 
     async getTransactionStatus(transactionId: string): Promise<any> {
-        // Logic to get the transaction status for Monero
         const transactions = await this.wallet.getTxs();
         const transaction = transactions.find(tx => tx.id === transactionId);
-        return transaction || null; // Return the transaction status or null if not found
+        return transaction || null;
     }
 }
