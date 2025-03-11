@@ -1,8 +1,12 @@
 import axios from 'axios';
+import axiosRetry from 'axios-retry';
 import QRCode from 'qrcode';
 
 const BLOCKCYPHER_API_URL = 'https://api.blockcypher.com/v1/btc/test3';
 const BLOCKCYPHER_TOKEN = 'your_blockcypher_token';
+
+// Configurar axios-retry para reintentar solicitudes en caso de errores 429
+axiosRetry(axios, { retries: 3, retryCondition: (error) => !!(error.response && error.response.status === 429) });
 
 export default class BtcService {
     private balance: number;
