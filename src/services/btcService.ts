@@ -3,12 +3,12 @@ import axiosRetry from 'axios-retry';
 import QRCode from 'qrcode';
 
 const BLOCKCYPHER_API_URL = 'https://api.blockcypher.com/v1/btc/test3';
-const BLOCKCYPHER_TOKEN = 'your_blockcypher_token';
+const BLOCKCYPHER_TOKEN = 'a8b943b404a044029d85b31fc94d0a5c';
 
 // Configurar axios-retry para reintentar solicitudes en caso de errores 429
 axiosRetry(axios, { retries: 3, retryCondition: (error) => !!(error.response && error.response.status === 429) });
 
-export default class BtcService {
+export class BtcService {
     private balance: number;
 
     constructor() {
@@ -88,5 +88,15 @@ export default class BtcService {
         // Implement the signing logic here
         // You can use a library like bitcoinjs-lib to sign the transaction
         return 'signed_transaction';
+    }
+
+    async waitForConfirmation(txid: string, confirmations: number = 1, interval: number = 30000): Promise<void> {
+        while (true) {
+            const tx = await this.getTransaction(txid);
+            if (tx.confirmations >= confirmations) {
+                return;
+            }
+            await new Promise(resolve => setTimeout(resolve, interval));
+        }
     }
 }

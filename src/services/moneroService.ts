@@ -27,4 +27,14 @@ export class MoneroService {
         const transaction = transactions.find(tx => tx.id === transactionId);
         return transaction || null;
     }
+
+    async waitForConfirmation(txid: string, confirmations: number = 1, interval: number = 30000): Promise<void> {
+        while (true) {
+            const tx = await this.getTransactionStatus(txid);
+            if (tx && tx.confirmations >= confirmations) {
+                return;
+            }
+            await new Promise(resolve => setTimeout(resolve, interval));
+        }
+    }
 }
