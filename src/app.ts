@@ -1,5 +1,9 @@
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import express from 'express';
 import { setRoutes } from './routes';
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -8,9 +12,8 @@ app.get("/", (req, res) => {
     res.send("¡La aplicación está funcionando!");
 });
 
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 setRoutes(app);
 
